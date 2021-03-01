@@ -144,5 +144,11 @@ def create_embed(data, name, author):
 
     return embed
 
+@bot.event	
+async def on_command_error(ctx, error):	
+    if isinstance(error, commands.CommandNotFound):	
+        return	
+    raise error
+
 # Define variable key in secret.py
 bot.run(key)
